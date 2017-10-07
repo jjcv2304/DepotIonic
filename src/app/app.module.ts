@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
+import { SQLite } from '@ionic-native/sqlite';
 
 import { MyApp } from './app.component';
-// import { HomePage } from '../pages/home/home';
-// import { ListPage } from '../pages/list/list';
-import  { HomePage, ListPage, ShelfPage, ShelfTypePage } from '../pages/pages';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import  { HomePage, ListPage, ShelfPage, ShelfTypePage } from '../pages/pages';
+import { DepotDb, SqlStorage } from "../shared/shared";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -35,7 +38,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SqlStorage,
+    DepotDb,
+    SQLite
   ]
 })
 export class AppModule {}
