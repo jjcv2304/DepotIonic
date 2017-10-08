@@ -13,12 +13,17 @@ import { IItemType } from '../../../models/item-type.model';
     overflow: hidden;
     }
 
+    .col{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
   `]
 })
 export class ItemTypePage {
   itemTypes: IItemType[];
 
-  // constructor(public navCtrl: NavController, public navParams: NavParams) {
   constructor(private db: DepotDbMock) {
     this.itemTypes = db.getItemTypes();
   }
