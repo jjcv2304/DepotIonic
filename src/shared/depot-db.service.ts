@@ -25,46 +25,6 @@ export class DepotDb {
     }
   }
 
-  favoriteTeam(team, tournamentId, tournamentName) {
-    let item = { team: team, tournamentId: tournamentId, tournamentName: tournamentName };
-
-    if (this.sqlMode) {
-      this.sql.set(team.id.toString(), JSON.stringify(item)).then(data => {
-        this.events.publish('favorites:changed');
-      });
-    } else {
-      return new Promise(resolve => {
-        this.storage.set(team.id.toString(), JSON.stringify(item)).then(() => {
-          this.events.publish('favorites:changed');
-          resolve();
-        });
-      });
-    }
-  }
-
-  unfavoriteTeam(team) {
-    if (this.sqlMode) {
-      this.sql.remove(team.id.toString()).then(data => {
-        this.events.publish('favorites:changed');
-      });
-    } else {
-      return new Promise(resolve => {
-        this.storage.remove(team.id.toString()).then(() => {
-          this.events.publish('favorites:changed');
-          resolve();
-        });
-      });
-    }
-  }
-
-  isFavoriteTeam(teamId): Promise<boolean> {
-    if (this.sqlMode) {
-      return this.sql.get(teamId.toString()).then(value => value ? true : false);
-    } else {
-      return new Promise(resolve => resolve(this.storage.get(teamId.toString()).then(value => value ? true : false)));
-    }
-  }
-
   getAllFavorites(): Promise<any[]> {
     if (this.sqlMode) {
       return this.sql.getAll();

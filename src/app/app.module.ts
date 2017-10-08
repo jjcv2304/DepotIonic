@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import  { HomePage, AdminPage,ShelfPage, ShelfTypePage, ItemTypePage } from '../pages/pages';
 import { DepotDb, SqlStorage } from "../shared/shared";
+import { DepotDbMock } from '../shared/depot-db.mock.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { DepotDb, SqlStorage } from "../shared/shared";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SqlStorage,
     DepotDb,
+    DepotDbMock,
     SQLite
   ]
 })

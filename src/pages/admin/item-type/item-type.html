@@ -1,0 +1,20 @@
+<ion-header>
+      <ion-navbar>
+        <ion-title>Item Types</ion-title>
+      </ion-navbar>
+</ion-header>
+    
+<ion-content padding>
+  <ion-grid>
+    <ion-row *ngFor="let itemType of itemTypes" color="secondary">
+      <ion-col col-3 nowrap color="light">{{itemType.name}}</ion-col>
+      <ion-col col-7 nowrap>{{itemType.description}}</ion-col>
+      <ion-col col-2>
+        <button (click)="deleteItemType(itemType)" small ion-button color="light">          
+            <ion-icon name="ios-trash-outline"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <button ion-button small round (click)="addItemType()" color="dark">New Item Type</button>
+</ion-content>
