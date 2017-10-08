@@ -3,7 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage, ListPage, ShelfPage, ShelfTypePage } from '../pages/pages';
+import { HomePage } from '../pages/pages';
 import { DepotDb } from "../shared/shared";
 
 @Component({
@@ -21,14 +21,6 @@ export class MyApp {
     public DepotDb: DepotDb,
     public splashScreen: SplashScreen) {
     this.initializeApp();
-
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Shelf', component: ShelfPage },
-      { title: 'ShelfType', component: ShelfTypePage }
-    ];
 
   }
 

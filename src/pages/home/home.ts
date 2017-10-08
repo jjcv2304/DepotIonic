@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ShelfPage } from "../pages";
+import { AdminPage } from "../pages";
 
 @Component({
   selector: 'page-home',
@@ -10,9 +10,9 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) { };
 
-  goToShelf(){
+  goToAdmin(){
     
-    this.navCtrl.push(ShelfPage);
+    this.navCtrl.push(AdminPage);
   }
 
 }

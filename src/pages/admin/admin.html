@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+  
+    <ion-card>
+      <button ion-item text-center  (click)="goToShelves()">
+          Admin Shelves
+      </button>
+    </ion-card>
+  
+    <ion-card>
+      <button ion-item text-center (click)="goToShelvesTypes()">
+            Admin Shelf-types
+        </button>
+    </ion-card>
+  
+    <ion-card>
+      <button ion-item text-center (click)="goToItemTypes()"> 
+            Admin Item-types
+        </button>
+    </ion-card>
+  
+  </ion-content>

@@ -10,16 +10,17 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import  { HomePage, ListPage, ShelfPage, ShelfTypePage } from '../pages/pages';
+import  { HomePage, AdminPage,ShelfPage, ShelfTypePage, ItemTypePage } from '../pages/pages';
 import { DepotDb, SqlStorage } from "../shared/shared";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
+    AdminPage,
     ShelfPage,
-    ShelfTypePage
+    ShelfTypePage,
+    ItemTypePage
   ],
   imports: [
     BrowserModule,
@@ -30,10 +31,11 @@ import { DepotDb, SqlStorage } from "../shared/shared";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage, 
+    HomePage, 
+    AdminPage,
     ShelfPage,
-    ShelfTypePage
+    ShelfTypePage,
+    ItemTypePage
   ],
   providers: [
     StatusBar,
