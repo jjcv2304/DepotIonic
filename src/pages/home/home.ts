@@ -11,7 +11,7 @@ export class HomePage {
   constructor(public navCtrl: NavController) { };
 
   goToShelf(){
-    console.log('eoooooooooooo');
+    
     this.navCtrl.push(ShelfPage);
   }
 
