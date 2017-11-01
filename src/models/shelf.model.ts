@@ -6,6 +6,7 @@ export interface IShelf {
     description: string;
     width: number;
     height: number;
+    deepth: number;
     location: string;
     shelfParent: number;
     type: IShelfType;

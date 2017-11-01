@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IItem, IShelf, IItemType, IShelfType } from '../models/models';
+import { IItem, IShelf, IItemType, IShelfType } from '../models/index';
 
 @Injectable()
 export class DepotDbMock {
@@ -26,7 +26,166 @@ export class DepotDbMock {
     return ITEMTYPES.find(it => it.id === id);
   }
 
+  getShelves(): IShelf[] {
+    return SHELVES;
+  }
+
+  getShelf(id: number): IShelf {
+    return SHELVES.find(i => i.id === id);
+  }
+
+  getShelfTypes(): IShelfType[] {
+    return SHELVESTYPES;
+  }
+
+  getShelfType(id: number): IShelfType {
+    return SHELVESTYPES.find(i => i.id === id);
+  }
+
 }
+
+const SHELVES: IShelf[] = [
+  {
+    id: 1,
+    name: "Despensa habitacion",
+    description: "The big shelf in the sleeping room",
+    width: 0,
+    height: 0,
+    deepth: 0,
+    location: "Sleeping room",
+    shelfParent: null,
+    type: IShelfType[2]
+  },
+  {
+    id: 2,
+    name: "Dh1",
+    description: "Estanteria despensa habitacion",
+    width: 60,
+    height: 40,
+    deepth: 30,
+    location: "Sleeping room",
+    shelfParent: 1,
+    type: IShelfType[2]
+  },
+  {
+    id: 3,
+    name: "Dh2",
+    description: "Estanteria despensa habitacion",
+    width: 25,
+    height: 40,
+    deepth: 30,
+    location: "Sleeping room",
+    shelfParent: 1,
+    type: IShelfType[2]
+  },
+  {
+    id: 4,
+    name: "Dh3",
+    description: "Estanteria despensa habitacion",
+    width: 60,
+    height: 20,
+    deepth: 30,
+    location: "Sleeping room",
+    shelfParent: 1,
+    type: IShelfType[2]
+  },
+  {
+    id: 5,
+    name: "Dh4",
+    description: "Estanteria despensa habitacion",
+    width: 60,
+    height: 20,
+    deepth: 30,
+    location: "Sleeping room",
+    shelfParent: 1,
+    type: IShelfType[2]
+  },
+  {
+    id: 6,
+    name: "Nevera",
+    description: "Estanteria refrigerada en la cocina",
+    width: 0,
+    height: 0,
+    deepth: 0,
+    location: "Kitchen",
+    shelfParent: null,
+    type: IShelfType[0]
+  },
+  {
+    id: 7,
+    name: "Nevera_S1",
+    description: "Estanteria refrigerada en la cocina",
+    width: 60,
+    height: 20,
+    deepth: 40,
+    location: "Kitchen",
+    shelfParent: 6,
+    type: IShelfType[0]
+  },
+  {
+    id: 8,
+    name: "Nevera_S2",
+    description: "Estanteria refrigerada en la cocina",
+    width: 20,
+    height: 20,
+    deepth: 40,
+    location: "Kitchen",
+    shelfParent: 6,
+    type: IShelfType[0]
+  },
+  {
+    id: 9,
+    name: "Nevera_S3",
+    description: "Estanteria refrigerada en la cocina",
+    width: 20,
+    height: 20,
+    deepth: 10,
+    location: "Kitchen",
+    shelfParent: 6,
+    type: IShelfType[0]
+  },
+  {
+    id: 10,
+    name: "Nevera_S4",
+    description: "Estanteria refrigerada en la cocina",
+    width: 20,
+    height: 30,
+    deepth: 10,
+    location: "Kitchen",
+    shelfParent: 6,
+    type: IShelfType[0]
+  },
+  {
+    id: 11,
+    name: "Congelador",
+    description: "Estanteria refrigerada en la cocina",
+    width: 50,
+    height: 20,
+    deepth: 40,
+    location: "Kitchen",
+    shelfParent: null,
+    type: IShelfType[1]
+  }
+];
+
+const SHELVESTYPES: IShelfType[] = [
+  {
+    id: 1,
+    name: "Fridge",
+    description: "Cool shelf"
+  },
+  {
+    id: 2,
+    name: "Freezer",
+    description: "Very Cool shelf"
+  },
+  {
+    id: 3,
+    name: "Shelf",
+    description: "Shelf, 25C"
+  }
+];
+
 const ITEMTYPES: IItemType[] = [
   {
     id: 1,
@@ -95,20 +254,7 @@ const ITEMS: IItem[] = [
         description: 'Es un alimento/plato que esta listo para ser consumido sin mas elaboracion'
       }
     ],
-    shelf: {
-      id: 2,
-      name: 'Congelador',
-      description: 'Congelador para comida T entre -4 y 0',
-      height: 10,
-      width: 10,
-      location: 'Cocina, parte baja de la nevera',
-      shelfParent: null,
-      type: {
-        id: 2,
-        name: 'Congelador',
-        description: 'Congelador para comida T entre -4 y 0'
-      }
-    }
+    shelf: SHELVES[10],
 
   },
   {
@@ -135,20 +281,7 @@ const ITEMS: IItem[] = [
         description: 'Es un alimento/plato que esta listo para ser consumido sin mas elaboracion'
       }
     ],
-    shelf: {
-      id: 2,
-      name: 'Congelador',
-      description: 'Congelador para comida T entre -4 y 0',
-      height: 10,
-      width: 10,
-      location: 'Cocina, parte baja de la nevera',
-      shelfParent: null,
-      type: {
-        id: 2,
-        name: 'Congelador',
-        description: 'Congelador para comida T entre -4 y 0'
-      }
-    }
+    shelf: SHELVES[10],
 
   },
   {
@@ -175,20 +308,7 @@ const ITEMS: IItem[] = [
         description: 'Es un alimento/plato que esta listo para ser consumido sin mas elaboracion'
       }
     ],
-    shelf: {
-      id: 2,
-      name: 'Congelador',
-      description: 'Congelador para comida T entre -4 y 0',
-      height: 10,
-      width: 10,
-      location: 'Cocina, parte baja de la nevera',
-      shelfParent: null,
-      type: {
-        id: 2,
-        name: 'Congelador',
-        description: 'Congelador para comida T entre -4 y 0'
-      }
-    }
+    shelf: SHELVES[10],
 
   },
   {
@@ -215,22 +335,7 @@ const ITEMS: IItem[] = [
         description: 'Es un alimento/plato que esta listo para ser consumido sin mas elaboracion'
       }
     ],
-    shelf: {
-      id: 1,
-      name: 'Nevera',
-      description: 'Conserva la comida fresca mas tiempo',
-      height: 30,
-      width: 30,
-      location: 'Cocina',
-      shelfParent: null,
-      type: {
-        id: 1,
-        name: 'Refrigerador',
-        description: 'Conserva la comida fresca mas tiempo'
-      }
-    }
+    shelf: SHELVES[5],
 
   }
 ];
-
-

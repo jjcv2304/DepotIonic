@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DepotDbMock } from "../../../shared/shared";
-import { IItemType } from '../../../models/item-type.model';
+import { IItemType } from '../../../models/index';
 
 @Component({
   selector: 'page-item-type',
