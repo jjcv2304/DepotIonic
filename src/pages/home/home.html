@@ -2,7 +2,7 @@
 <ion-content class="card-background-page">
 
   <ion-card>
-    <button ion-item text-center>
+    <button ion-item text-center  (click)="goToWhatIHave()">
         <ion-icon name="ios-list-box-outline"></ion-icon>
         What do I have?
     </button>
@@ -16,7 +16,7 @@
   </ion-card>
 
   <ion-card>
-    <button ion-item text-center (click)="goToAdmin()"> 
+    <button ion-item text-center (click)="goToAdmin()">
           <ion-icon name="ios-construct-outline" ></ion-icon>
           Admin
       </button>
