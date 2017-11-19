@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DepotDbMock } from "../../../shared/shared";
+import { DepotDb } from "../../../shared/shared";
 import { IItemType } from '../../../models/index';
 
 @Component({
@@ -24,7 +24,7 @@ import { IItemType } from '../../../models/index';
 export class ItemTypePage {
   itemTypes: IItemType[];
 
-  constructor(private db: DepotDbMock) {
+  constructor(private db: DepotDb) {
     this.itemTypes = db.getItemTypes();
   }
 
@@ -35,7 +35,7 @@ export class ItemTypePage {
   deleteItemType(itemType) {
     console.log("deleteItemType: " + itemType.id);
   }
-  
+
   addItemType() {
     console.log("addItemType");
   }

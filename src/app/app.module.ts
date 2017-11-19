@@ -18,11 +18,32 @@ import { SQLite , SQLiteDatabaseConfig } from '@ionic-native/sqlite';
 
 declare var SQL;
 
+// class SQLiteMock {
+//   public create(config: SQLiteDatabaseConfig): Promise<SQLiteObject> {
+//     console.log("--->Create Mock SQLite Database.");
+//     var db = new SQL.Database();
+//     return new Promise((resolve, reject) => {
+//       resolve(new SQLiteObject(db));
+//     });
+//   }
+// }
+
 class SQLiteMock {
   public create(config: SQLiteDatabaseConfig): Promise<SQLiteObject> {
-    console.log("Create Mock SQLite Database.");
-    var db = new SQL.Database();
-    return new Promise((resolve, reject) => {
+    var db;
+    var storeddb = localStorage.getItem("database");
+
+    var arr = storeddb.split(',');
+    if(storeddb)
+    {
+      db = new SQL.Database(arr);
+    }
+    else
+    {
+      db = new SQL.Database();
+    }
+
+    return new Promise((resolve,reject)=>{
       resolve(new SQLiteObject(db));
     });
   }
@@ -33,26 +54,9 @@ class SQLiteObject {
   constructor(_objectInstance: any) {
     this._objectInstance = _objectInstance;
   };
-  public create(config: SQLiteDatabaseConfig): Promise<SQLiteObject> {
-    var db;
 
-    console.log("Open Mock SQLite Database.");
-    var storeddb = localStorage.getItem("database");
-
-    var arr = storeddb.split(',');
-    if (storeddb) {
-      db = new SQL.Database(arr);
-    }
-    else {
-      db = new SQL.Database();
-    }
-
-    return new Promise((resolve, reject) => {
-      resolve(new SQLiteObject(db));
-    });
-  }
   executeSql(statement: string, params: any): Promise<any> {
-    console.log("Mock SQLite executeSql: " + statement);
+    console.log("--->Mock SQLite executeSql: " + statement);
 
     return new Promise((resolve, reject) => {
       try {

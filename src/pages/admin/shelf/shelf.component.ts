@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DepotDbMock } from "../../../shared/shared";
+import { DepotDb } from "../../../shared/shared";
 import { IShelf } from '../../../models/index';
 
 @Component({
@@ -9,7 +9,7 @@ import { IShelf } from '../../../models/index';
 export class ShelfPage {
   shelves: IShelf[];
 
-  constructor(private db: DepotDbMock) {
+  constructor(private db: DepotDb) {
     this.shelves = db.getShelves();
   }
 

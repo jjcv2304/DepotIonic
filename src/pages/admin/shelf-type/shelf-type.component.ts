@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DepotDbMock } from "../../../shared/shared";
+import { DepotDb } from "../../../shared/shared";
 import {  IShelfType } from '../../../models/index';
 
 @Component({
@@ -9,10 +9,14 @@ import {  IShelfType } from '../../../models/index';
 
 export class ShelfTypePage {
   shelfTypes: IShelfType[];
-  
-    constructor(private db: DepotDbMock) {
-      this.shelfTypes = db.getShelfTypes();
+
+    constructor(private db: DepotDb) {
+      this.getShelfTypes();
     };
+
+  getShelfTypes(){
+    this.  db.getShelfTypes().subscribe(st => this.shelfTypes = st);
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShelfTypePage');
@@ -21,8 +25,16 @@ export class ShelfTypePage {
   deleteShelfType(shelfType) {
     console.log("deleteShelfType: " + shelfType.id);
   };
-  
+
   addShelfType() {
-    console.log("addShelfType");
+    let st: IShelfType = {id:this.getRandomInt(2,1000), name: 'tres', description: 'tres  desc'};
+    this.db.addShelfType(st);
+    this.getShelfTypes();
+
   };
+
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
 }
