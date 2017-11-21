@@ -11,25 +11,26 @@ export class ShelfTypePage {
   shelfTypes: IShelfType[];
 
     constructor(private db: DepotDb) {
-      this.getShelfTypes();
+      this.loadShelfTypes();
     };
 
-  getShelfTypes(){
-    this.  db.getShelfTypes().subscribe(st => this.shelfTypes = st);
+  loadShelfTypes(){
+    this.db.getShelfTypes().subscribe(st => this.shelfTypes = st);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShelfTypePage');
   }
 
-  deleteShelfType(shelfType) {
-    console.log("deleteShelfType: " + shelfType.id);
+  deleteShelfType(shelfType: IShelfType) {
+    this.db.deleteShelfType(shelfType.id);
+    this.loadShelfTypes();
   };
 
   addShelfType() {
     let st: IShelfType = {id:this.getRandomInt(2,1000), name: 'tres', description: 'tres  desc'};
     this.db.addShelfType(st);
-    this.getShelfTypes();
+    this.loadShelfTypes();
 
   };
 

@@ -35,9 +35,7 @@ export class MyApp {
   }
 
   initDatabase() {
-    this.DepotDb.initStorage().then(() => {
-      console.log('Db initialized');
-    });
+    this.DepotDb.initStorage();
   };
 
   openPage(page) {

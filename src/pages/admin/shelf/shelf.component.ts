@@ -10,7 +10,7 @@ export class ShelfPage {
   shelves: IShelf[];
 
   constructor(private db: DepotDb) {
-    this.shelves = db.getShelves();
+   // this.shelves = db.getShelves();
   }
 
   ionViewDidLoad() {

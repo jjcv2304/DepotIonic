@@ -51,7 +51,7 @@ const SHELVES: IShelf[] = [
     description: "The big shelf in the sleeping room",
     width: 0,
     height: 0,
-    deepth: 0,
+    depth: 0,
     location: "Sleeping room",
     shelfParent: null,
     type: IShelfType[2]
@@ -62,7 +62,7 @@ const SHELVES: IShelf[] = [
     description: "Estanteria despensa habitacion",
     width: 60,
     height: 40,
-    deepth: 30,
+    depth: 30,
     location: "Sleeping room",
     shelfParent: 1,
     type: IShelfType[2]
@@ -73,7 +73,7 @@ const SHELVES: IShelf[] = [
     description: "Estanteria despensa habitacion",
     width: 25,
     height: 40,
-    deepth: 30,
+    depth: 30,
     location: "Sleeping room",
     shelfParent: 1,
     type: IShelfType[2]
@@ -84,7 +84,7 @@ const SHELVES: IShelf[] = [
     description: "Estanteria despensa habitacion",
     width: 60,
     height: 20,
-    deepth: 30,
+    depth: 30,
     location: "Sleeping room",
     shelfParent: 1,
     type: IShelfType[2]
@@ -95,7 +95,7 @@ const SHELVES: IShelf[] = [
     description: "Estanteria despensa habitacion",
     width: 60,
     height: 20,
-    deepth: 30,
+    depth: 30,
     location: "Sleeping room",
     shelfParent: 1,
     type: IShelfType[2]
@@ -106,7 +106,7 @@ const SHELVES: IShelf[] = [
     description: "Estanteria refrigerada en la cocina",
     width: 0,
     height: 0,
-    deepth: 0,
+    depth: 0,
     location: "Kitchen",
     shelfParent: null,
     type: IShelfType[0]
@@ -117,7 +117,7 @@ const SHELVES: IShelf[] = [
     description: "Estanteria refrigerada en la cocina",
     width: 60,
     height: 20,
-    deepth: 40,
+    depth: 40,
     location: "Kitchen",
     shelfParent: 6,
     type: IShelfType[0]
@@ -128,7 +128,7 @@ const SHELVES: IShelf[] = [
     description: "Estanteria refrigerada en la cocina",
     width: 20,
     height: 20,
-    deepth: 40,
+    depth: 40,
     location: "Kitchen",
     shelfParent: 6,
     type: IShelfType[0]
@@ -139,7 +139,7 @@ const SHELVES: IShelf[] = [
     description: "Estanteria refrigerada en la cocina",
     width: 20,
     height: 20,
-    deepth: 10,
+    depth: 10,
     location: "Kitchen",
     shelfParent: 6,
     type: IShelfType[0]
@@ -150,7 +150,7 @@ const SHELVES: IShelf[] = [
     description: "Estanteria refrigerada en la cocina",
     width: 20,
     height: 30,
-    deepth: 10,
+    depth: 10,
     location: "Kitchen",
     shelfParent: 6,
     type: IShelfType[0]
@@ -161,7 +161,7 @@ const SHELVES: IShelf[] = [
     description: "Estanteria refrigerada en la cocina",
     width: 50,
     height: 20,
-    deepth: 40,
+    depth: 40,
     location: "Kitchen",
     shelfParent: null,
     type: IShelfType[1]
