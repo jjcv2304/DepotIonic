@@ -1,16 +1,20 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      SQLite Mock demo
-    </ion-title>
+    <ion-title>Item</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="insertInvoice()">Insert Invoice</button>
-  <ion-list>
-    <ion-item *ngFor="let invoice of invoices">
-
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row *ngFor="let item of items" color="secondary">
+      <ion-col col-3 nowrap color="light">{{item.name}}</ion-col>
+      <ion-col col-7 nowrap>{{item.description}}</ion-col>
+      <ion-col col-2>
+        <button (click)="deleteItem(item)" small ion-button color="light">
+          <ion-icon name="ios-trash-outline"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <button ion-button small round (click)="addItem()" color="dark">New Item Type</button>
 </ion-content>

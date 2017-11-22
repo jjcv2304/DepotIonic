@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { DepotDb } from "../../../shared/shared";
-import { IShelf } from '../../../models/index';
+import {Component} from '@angular/core';
+import {DepotDb} from "../../../shared/shared";
+import {IShelf} from '../../../models/index';
+import {IShelfType} from "../../../models/shelf-type.model";
 
 @Component({
   selector: 'page-shelf',
@@ -8,21 +9,47 @@ import { IShelf } from '../../../models/index';
 })
 export class ShelfPage {
   shelves: IShelf[];
+  shelfTypes: IShelfType[];
 
   constructor(private db: DepotDb) {
-   // this.shelves = db.getShelves();
+    this.loadShelves();
+    this.loadShelfTypes();
+  };
+
+  loadShelves() {
+    this.db.getShelves().subscribe(s => this.shelves = s);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ShelfPage');
+  loadShelfTypes() {
+    this.db.getShelfTypes().subscribe(st => this.shelfTypes = st);
   }
 
-  deleteShelf(shelf) {
-    console.log("deleteShelf: " + shelf.id);
-  }
+  deleteShelf(shelf: IShelf) {
+    this.db.deleteShelf(shelf.id);
+    this.loadShelves();
+  };
 
   addShelf() {
-    console.log("addShelf");
+    let shelfType = this.shelfTypes[0];
+    let shelf: IShelf = {
+      id: this.getRandomInt(2, 1000),
+      name: 'tres',
+      description: 'tres  desc',
+      width: 10,
+      height: 10,
+      depth: 10,
+      location: "room",
+      shelfParent: null,
+      type: shelfType
+    };
+    this.db.addShelf(shelf);
+    this.loadShelves();
+
+  };
+
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+
 
 }

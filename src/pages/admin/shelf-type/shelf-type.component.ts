@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { DepotDb } from "../../../shared/shared";
-import {  IShelfType } from '../../../models/index';
+import {Component} from '@angular/core';
+import {DepotDb} from "../../../shared/shared";
+import {IShelfType} from '../../../models/index';
 
 @Component({
   selector: 'page-shelf-type',
@@ -10,11 +10,11 @@ import {  IShelfType } from '../../../models/index';
 export class ShelfTypePage {
   shelfTypes: IShelfType[];
 
-    constructor(private db: DepotDb) {
-      this.loadShelfTypes();
-    };
+  constructor(private db: DepotDb) {
+    this.loadShelfTypes();
+  };
 
-  loadShelfTypes(){
+  loadShelfTypes() {
     this.db.getShelfTypes().subscribe(st => this.shelfTypes = st);
   }
 
@@ -28,7 +28,7 @@ export class ShelfTypePage {
   };
 
   addShelfType() {
-    let st: IShelfType = {id:this.getRandomInt(2,1000), name: 'tres', description: 'tres  desc'};
+    let st: IShelfType = {id: this.getRandomInt(2, 1000), name: 'tres', description: 'tres  desc'};
     this.db.addShelfType(st);
     this.loadShelfTypes();
 

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Events } from 'ionic-angular';
 import { SqlStorage } from './sql-storage.service';
 import { IItem, IShelf, IItemType, IShelfType } from '../models/index';
 import {Observable} from "rxjs/Observable";
@@ -7,7 +6,7 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class DepotDb {
 
-  constructor(public events: Events, private sql: SqlStorage) {
+  constructor(private sql: SqlStorage) {
   }
 
   initStorage(): Promise<any> {
@@ -32,6 +31,26 @@ export class DepotDb {
   }
   deleteShelfType(id: number): void {
     this.sql.deleteShelfType(id);
+  }
+
+  getShelves(): Observable<IShelf[]> {
+    return this.sql.getShelves();
+  }
+  addShelf(shelf: IShelf): void {
+    this.sql.addShelf(shelf);
+  }
+  deleteShelf(id: number): void {
+    this.sql.deleteShelf(id);
+  }
+
+  getItems(): Observable<IItem[]> {
+    return this.sql.getItems();
+  }
+  addItem(item: IItem): void {
+    this.sql.addItem(item);
+  }
+  deleteItem(id: number): void {
+    this.sql.deleteItem(id);
   }
 
 
