@@ -5,13 +5,13 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {MyApp} from './app.component';
+
 import {
   PlatformMock,
   StatusBarMock,
   SplashScreenMock,
   DepotDbMock
 } from '../../test-config/mocks-ionic';
-
 
 import { DepotDb } from "../shared/shared";
 
