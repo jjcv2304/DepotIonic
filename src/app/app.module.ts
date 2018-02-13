@@ -11,13 +11,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import  { HomePage, AdminPage,ShelfPage, ShelfTypePage, ItemTypePage } from '../pages/pages';
 import { DepotDb, SqlStorage } from "../shared/shared";
+import { DepotDbMock } from '../shared/depot-db.mock.service';
 import {WhatIHavePage} from "../pages/what-i-have/what-i-have";
 
 import { SQLite , SQLiteDatabaseConfig } from '@ionic-native/sqlite';
 
 declare var SQL;
 
-export class SQLiteMock {
+class SQLiteMock {
   public create(config: SQLiteDatabaseConfig): Promise<SQLiteObject> {
     var db;
     var storeddb = localStorage.getItem("database");
@@ -110,6 +111,7 @@ class SQLiteObject {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SqlStorage,
     DepotDb,
+    DepotDbMock,
     {provide: SQLite, useClass: SQLiteMock},
   ]
 })
