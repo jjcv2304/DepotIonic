@@ -9,9 +9,10 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import  { HomePage, AdminPage,ShelfPage, ShelfTypePage, ItemTypePage } from '../pages/pages';
+import  { HomePage, AdminPage,ShelfPage, ShelfTypePage, ItemTypePage, AddItemTypePage } from '../pages/pages';
 import { DepotDb, SqlStorage } from "../shared/shared";
 import { DepotDbMock } from '../shared/depot-db.mock.service';
+//todo test commenting line above, and deploying on android,
 import {WhatIHavePage} from "../pages/what-i-have/what-i-have";
 
 import { SQLite , SQLiteDatabaseConfig } from '@ionic-native/sqlite';
